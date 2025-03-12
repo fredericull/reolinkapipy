@@ -1,0 +1,71 @@
+[
+  {
+    "cmd": "GetChannelstatus",
+    "code": 0,
+    "value": {
+      "count": 12,
+      "status": [
+        {
+          "channel": 0,
+          "name": "Cam1",
+          "online": 1
+        },
+        {
+          "channel": 1,
+          "name": "Cam2",
+          "online": 1
+        },
+        {
+          "channel": 2,
+          "name": "Cam3",
+          "online": 1
+        },
+        {
+          "channel": 3,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 4,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 5,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 6,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 7,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 8,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 9,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 10,
+          "name": "",
+          "online": 0
+        },
+        {
+          "channel": 11,
+          "name": "",
+          "online": 0
+        }
+      ]
+    }
+  }
+]

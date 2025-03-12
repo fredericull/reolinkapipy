@@ -42,3 +42,12 @@ class SystemAPIMixin:
         """
         body = [{"cmd": "GetTime", "action": 0, "param": {}}]
         return self._execute_command('GetTime', body)
+
+    def get_channels(self) -> Dict:
+        """
+        Get the nrv channels status
+        See examples/response/GetChannelstatus.json for example response data.
+        :return: response json
+        """
+        body = [{"cmd": "GetChannelstatus", "action": 0, "param": {}}]
+        return self._execute_command('GetChannelstatus', body)

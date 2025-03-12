@@ -170,3 +170,23 @@ class PtzAPIMixin:
         :return: response json
         """
         return self._send_operation('Auto', speed=speed, channel=channel)
+
+    def get_guard(self, channel: int = 0) -> Dict:
+        """
+        Get the camera guard position configuration
+        Value is contained in response[0]["value"]["PtzGuard"].
+        See examples/response/GetPtzGuard.json for example response data.
+        :param channel: channel id
+        :return: response json
+        """
+        data = [{"cmd": "GetPtzGuard", "action": 0, "param": {"channel": channel}}]
+        return self._execute_command('GetPtzGuard', data)
+
+    def go_to_guard(self, channel: int = 0) -> Dict:
+        """
+        Move the camera to the guard position (Requires 'admin' privilege level)
+        :param channel: channel id
+        :return: response json
+        """
+        data = [{"cmd": "SetPtzGuard", "action": 0, "param": {"PtzGuard": {"channel": channel, "cmdStr": "toPos"}}}]
+        return self._execute_command('SetPtzGuard', data)

@@ -1,0 +1,14 @@
+[
+  {
+    "cmd": "GetPtzGuard",
+    "code": 0,
+    "value": {
+      "PtzGuard": {
+        "benable": 1,
+        "bexistPos": 1,
+        "channel": 2,
+        "timeout": 60
+      }
+    }
+  }
+]

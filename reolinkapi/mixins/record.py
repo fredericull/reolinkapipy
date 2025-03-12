@@ -4,22 +4,24 @@ from typing import Dict
 class RecordAPIMixin:
     """API calls for the recording settings"""
 
-    def get_recording_encoding(self) -> Dict:
+    def get_recording_encoding(self, channel: int = 0) -> Dict:
         """
         Get the current camera encoding settings for "Clear" and "Fluent" profiles.
         See examples/response/GetEnc.json for example response data.
+        :param channel: channel id
         :return: response json
         """
-        body = [{"cmd": "GetEnc", "action": 1, "param": {"channel": 0}}]
+        body = [{"cmd": "GetEnc", "action": 1, "param": {"channel": channel}}]
         return self._execute_command('GetEnc', body)
 
-    def get_recording_advanced(self) -> Dict:
+    def get_recording_advanced(self, channel: int = 0) -> Dict:
         """
         Get recording advanced setup data
         See examples/response/GetRec.json for example response data.
+        :param channel: channel id
         :return: response json
         """
-        body = [{"cmd": "GetRec", "action": 1, "param": {"channel": 0}}]
+        body = [{"cmd": "GetRec", "action": 1, "param": {"channel": channel}}]
         return self._execute_command('GetRec', body)
 
     def set_recording_encoding(self,
@@ -31,7 +33,8 @@ class RecordAPIMixin:
                                sub_bit_rate: float = 160,
                                sub_frame_rate: float = 7,
                                sub_profile: str = 'High',
-                               sub_size: str = '640*480') -> Dict:
+                               sub_size: str = '640*480',
+                               channel: int = 0) -> Dict:
         """
         Sets the current camera encoding settings for "Clear" and "Fluent" profiles.
         :param audio: int Audio on or off
@@ -43,6 +46,7 @@ class RecordAPIMixin:
         :param sub_frame_rate: int Fluent Frame Rate
         :param sub_profile: string Fluent Profile
         :param sub_size: string Fluent Size
+        :param channel: channel id
         :return: response
         """
         body = [
@@ -52,7 +56,7 @@ class RecordAPIMixin:
                 "param": {
                     "Enc": {
                         "audio": audio,
-                        "channel": 0,
+                        "channel": channel,
                         "mainStream": {
                             "bitRate": main_bit_rate,
                             "frameRate": main_frame_rate,

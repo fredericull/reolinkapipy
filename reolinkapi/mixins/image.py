@@ -20,7 +20,8 @@ class ImageAPIMixin:
                                drc: float = 128,
                                rotation: float = 0,
                                mirroring: float = 0,
-                               nr3d: float = 1) -> Dict:
+                               nr3d: float = 1,
+                               channel: int = 0) -> Dict:
         """
         Sets the advanced camera settings.
 
@@ -40,6 +41,7 @@ class ImageAPIMixin:
         :param rotation: int
         :param mirroring: int
         :param nr3d: int
+        :param channel: channel id
         :return: response
         """
         body = [{
@@ -47,7 +49,7 @@ class ImageAPIMixin:
             "action": 0,
             "param": {
                 "Isp": {
-                    "channel": 0,
+                    "channel": channel,
                     "antiFlicker": anti_flicker,
                     "exposure": exposure,
                     "gain": {"min": gain_min, "max": gain_max},
@@ -72,7 +74,8 @@ class ImageAPIMixin:
                            contrast: float = 62,
                            hue: float = 1,
                            saturation: float = 125,
-                           sharpness: float = 128) -> Dict:
+                           sharpness: float = 128,
+                           channel: int = 0) -> Dict:
         """
         Sets the camera image settings.
 
@@ -81,6 +84,7 @@ class ImageAPIMixin:
         :param hue: int
         :param saturation: int
         :param sharpness: int
+        :param channel: channel id
         :return: response
         """
         body = [
@@ -90,7 +94,7 @@ class ImageAPIMixin:
                 "param": {
                     "Image": {
                         "bright": brightness,
-                        "channel": 0,
+                        "channel": channel,
                         "contrast": contrast,
                         "hue": hue,
                         "saturation": saturation,

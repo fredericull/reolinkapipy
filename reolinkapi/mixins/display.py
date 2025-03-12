@@ -4,22 +4,24 @@ from typing import Dict
 class DisplayAPIMixin:
     """API calls related to the current image (osd, on screen display)."""
 
-    def get_osd(self) -> Dict:
+    def get_osd(self, channel: int = 0) -> Dict:
         """
         Get OSD information.
         See examples/response/GetOsd.json for example response data.
+        :param channel: int channel id
         :return: response json
         """
-        body = [{"cmd": "GetOsd", "action": 1, "param": {"channel": 0}}]
+        body = [{"cmd": "GetOsd", "action": 1, "param": {"channel": channel}}]
         return self._execute_command('GetOsd', body)
 
-    def get_mask(self) -> Dict:
+    def get_mask(self, channel: int = 0) -> Dict:
         """
         Get the camera mask information.
         See examples/response/GetMask.json for example response data.
+        :param channel: int channel id
         :return: response json
         """
-        body = [{"cmd": "GetMask", "action": 1, "param": {"channel": 0}}]
+        body = [{"cmd": "GetMask", "action": 1, "param": {"channel": channel}}]
         return self._execute_command('GetMask', body)
 
     def set_osd(self, bg_color: bool = 0, channel: float = 0, osd_channel_enabled: bool = 0,

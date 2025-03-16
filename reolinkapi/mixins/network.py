@@ -148,6 +148,26 @@ class NetworkAPIMixin:
         body = [{"cmd": "GetEmail", "action": 0, "param": {}}]
         return self._execute_command('GetEmail', body)
 
+    def get_network_email_v20(self, channel : int = 0) -> Dict:
+        """
+        Get the email notification (V20) schedules & configurations
+        See examples/response/GetNetworkEmailV20.json for example response data.
+        :param channel: channel id
+        :return: response json
+        """
+        body = [{"cmd": "GetEmailV20", "action": 0, "param": {"channel": channel}}]
+        return self._execute_command('GetEmailV20', body)
+
+    def set_network_email_v20_enable(self, enable : int = 0) -> Dict:
+        """
+        Set the email notification (V20) globally enabled or not
+        See examples/response/SetNetworkEmailV20.json for example response data.
+        :param enable: Email notification enabled or not
+        :return: response json
+        """
+        body = [{"cmd": "SetEmailV20", "action": 0, "param": {"Email": {"enable": enable}}}]
+        return self._execute_command('SetEmailV20', body)
+
     def get_network_ftp(self) -> Dict:
         """
         Get the camera FTP network information
@@ -157,6 +177,26 @@ class NetworkAPIMixin:
         body = [{"cmd": "GetFtp", "action": 0, "param": {}}]
         return self._execute_command('GetFtp', body)
 
+    def get_network_ftp_v20(self, channel : int = 0) -> Dict:
+        """
+        Get the ftp (V20) schedules & configurations
+        See examples/response/GetNetworkFtpV20.json for example response data.
+        :param channel: channel id
+        :return: response json
+        """
+        body = [{"cmd": "GetFtpV20", "action": 0, "param": {"channel": channel}}]
+        return self._execute_command('GetFtpV20', body)
+
+    def set_network_ftp_v20_enable(self, enable : int = 0) -> Dict:
+        """
+        Set the ftp V20 globally enabled or not
+        See examples/response/SetNetworkFtpV20.json for example response data.
+        :param enable: Ftp enabled or not
+        :return: response json
+        """
+        body = [{"cmd": "SetFtpV20", "action": 0, "param": {"Ftp": {"enable": enable}}}]
+        return self._execute_command('SetFtpV20', body)
+
     def get_network_push(self) -> Dict:
         """
         Get the camera push network information
@@ -165,6 +205,26 @@ class NetworkAPIMixin:
         """
         body = [{"cmd": "GetPush", "action": 0, "param": {}}]
         return self._execute_command('GetPush', body)
+
+    def get_network_push_v20(self, channel : int = 0) -> Dict:
+        """
+        Get the push (V20) schedules & configurations
+        See examples/response/GetNetworkPushV20.json for example response data.
+        :param channel: channel id
+        :return: response json
+        """
+        body = [{"cmd": "GetPushV20", "action": 0, "param": {"channel": channel}}]
+        return self._execute_command('GetPushV20', body)
+
+    def set_network_push_v20_enable(self, enable : int = 0) -> Dict:
+        """
+        Set the push V20 globally enabled or not
+        See examples/response/SetNetworkPushV20.json for example response data.
+        :param enable: Push enabled or not
+        :return: response json
+        """
+        body = [{"cmd": "SetPushV20", "action": 0, "param": {"Push": {"enable": enable}}}]
+        return self._execute_command('SetPushV20', body)
 
     def get_network_status(self) -> Dict:
         """

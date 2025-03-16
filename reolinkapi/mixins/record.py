@@ -24,6 +24,26 @@ class RecordAPIMixin:
         body = [{"cmd": "GetRec", "action": 1, "param": {"channel": channel}}]
         return self._execute_command('GetRec', body)
 
+    def get_recording_advanced_v20(self, channel : int = 0) -> Dict:
+        """
+        Get recording advanced setup data (V20)
+        See examples/response/GetRecV20.json for example response data.
+        :param channel: channel id
+        :return: response json
+        """
+        body = [{"cmd": "GetRecV20", "action": 0, "param": {"channel": channel}}]
+        return self._execute_command('GetRecV20', body)
+
+    def set_recording_advanced_v20_enable(self, enable : int = 0) -> Dict:
+        """
+        Set recording advanced (V20) globally enabled or not
+        See examples/response/SetRecV20.json for example response data.
+        :param enable: Email notification enabled or not
+        :return: response json
+        """
+        body = [{"cmd": "SetRecV20", "action": 0, "param": {"Rec": {"enable": enable}}}]
+        return self._execute_command('SetRecV20', body)
+
     def set_recording_encoding(self,
                                audio: float = 0,
                                main_bit_rate: float = 8192,
